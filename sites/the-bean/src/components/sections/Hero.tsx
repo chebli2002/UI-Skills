@@ -31,7 +31,7 @@ export function Hero() {
         <HeroCup className="h-28 md:h-36 w-auto text-burnt-orange mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]" />
 
         <motion.h1
-          className="font-display text-5xl md:text-7xl tracking-tight text-cream"
+          className="font-display text-6xl md:text-7xl tracking-tight text-cream"
           variants={fadeUp}
           custom={1.3}
           initial="hidden"
@@ -41,7 +41,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mt-4 max-w-md text-cream-dim text-lg md:text-xl font-light"
+          className="mt-4 max-w-md text-cream-dim text-lg md:text-xl"
           variants={fadeUp}
           custom={1.5}
           initial="hidden"

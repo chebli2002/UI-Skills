@@ -21,7 +21,7 @@ const details = [
 
 export function Origin() {
   return (
-    <section id="origin" className="relative py-32 px-6 md:px-16">
+    <section id="origin" className="relative py-20 md:py-32 px-6 md:px-16">
       <CinematicImage
         src="beans-texture.jpg"
         alt="Close-up texture of roasted coffee beans"
@@ -57,7 +57,7 @@ export function Origin() {
           </motion.span>
 
           <motion.h2
-            className="font-display text-4xl md:text-5xl text-cream mt-4 leading-tight"
+            className="font-display text-5xl md:text-6xl text-cream mt-4 leading-tight"
             variants={fadeUp}
             custom={0.15}
             initial="hidden"
@@ -75,15 +75,27 @@ export function Origin() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
           >
-            We work directly with small-lot growers, roast in short batches,
-            and rest every bean before it&apos;s ground. Nothing about The
-            Bean is automated — patience is the whole method.
+            We source a single high-altitude lot from Ethiopia&apos;s
+            Yirgacheffe region and a family farm in Colombia&apos;s Huila,
+            roast each in twelve-kilogram batches, and rest every lot for
+            ten days before it&apos;s ground.
+          </motion.p>
+
+          <motion.p
+            className="font-display italic text-2xl md:text-3xl text-burnt-orange-light mt-6"
+            variants={fadeUp}
+            custom={0.45}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+          >
+            Patience is the whole method.
           </motion.p>
 
           <motion.dl
             className="mt-10 grid grid-cols-3 gap-6 max-w-md border-t border-cream-dim/20 pt-6"
             variants={fadeUp}
-            custom={0.45}
+            custom={0.6}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}

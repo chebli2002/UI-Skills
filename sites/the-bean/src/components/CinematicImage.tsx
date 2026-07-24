@@ -15,7 +15,7 @@ type CinematicImageProps = {
 };
 
 const overlayClass: Record<NonNullable<CinematicImageProps["overlay"]>, string> = {
-  hero: "bg-gradient-to-t from-charcoal-deep/75 via-charcoal/15 to-charcoal/35",
+  hero: "bg-gradient-to-t from-charcoal-deep/75 via-charcoal/35 to-charcoal/35",
   panel: "bg-gradient-to-b from-charcoal/15 via-transparent to-charcoal/40",
   none: "",
 };
