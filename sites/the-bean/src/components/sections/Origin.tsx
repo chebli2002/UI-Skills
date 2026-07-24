@@ -21,7 +21,7 @@ const details = [
 
 export function Origin() {
   return (
-    <section className="relative py-32 px-6 md:px-16">
+    <section id="origin" className="relative py-32 px-6 md:px-16">
       <CinematicImage
         src="beans-texture.jpg"
         alt="Close-up texture of roasted coffee beans"

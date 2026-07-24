@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Nav } from "@/components/Nav";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-charcoal text-cream">
+        <Nav />
         {children}
       </body>
     </html>
