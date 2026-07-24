@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type SteamProps = {
   className?: string;
@@ -15,33 +15,49 @@ const PATHS = [
 
 /**
  * Looping wisps of steam. Each strand drifts up, sways, and fades,
- * staggered so they never move in lockstep.
+ * staggered so they never move in lockstep. Under prefers-reduced-motion,
+ * renders a faint static wisp instead of the rising/fading loop — continuous
+ * ambient motion is exactly what that preference opts out of.
  */
 export function Steam({ className = "", strands = 3 }: SteamProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className={`pointer-events-none flex gap-6 ${className}`} aria-hidden>
-      {Array.from({ length: strands }).map((_, i) => (
-        <svg key={i} viewBox="-15 -20 40 115" width="28" height="80" fill="none">
-          <motion.path
-            d={PATHS[i % PATHS.length]}
-            stroke="currentColor"
-            strokeWidth={2.5}
-            strokeLinecap="round"
-            initial={{ pathLength: 0, opacity: 0, y: 10 }}
-            animate={{
-              pathLength: [0, 1, 1],
-              opacity: [0, 0.5, 0],
-              y: [10, -6, -22],
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.9,
-            }}
-          />
-        </svg>
-      ))}
+      {Array.from({ length: strands }).map((_, i) =>
+        shouldReduceMotion ? (
+          <svg key={i} viewBox="-15 -20 40 115" width="28" height="80" fill="none">
+            <path
+              d={PATHS[i % PATHS.length]}
+              stroke="currentColor"
+              strokeWidth={2.5}
+              strokeLinecap="round"
+              opacity={0.25}
+            />
+          </svg>
+        ) : (
+          <svg key={i} viewBox="-15 -20 40 115" width="28" height="80" fill="none">
+            <motion.path
+              d={PATHS[i % PATHS.length]}
+              stroke="currentColor"
+              strokeWidth={2.5}
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0, y: 10 }}
+              animate={{
+                pathLength: [0, 1, 1],
+                opacity: [0, 0.5, 0],
+                y: [10, -6, -22],
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.9,
+              }}
+            />
+          </svg>
+        )
+      )}
     </div>
   );
 }

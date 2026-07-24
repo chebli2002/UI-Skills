@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type Bean = {
   top: string;
@@ -50,6 +50,8 @@ function BeanGlyph() {
  * bob/drift/rotate loop so the scatter reads as organic, not synchronized.
  */
 export function FloatingBeans({ className = "" }: { className?: string }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden text-burnt-orange ${className}`}>
       {beans.map((bean, i) => (
@@ -63,11 +65,15 @@ export function FloatingBeans({ className = "" }: { className?: string }) {
             height: bean.size,
             opacity: bean.opacity,
           }}
-          animate={{
-            y: [0, -bean.bobY, 0, bean.bobY, 0],
-            x: [0, bean.driftX, 0, -bean.driftX, 0],
-            rotate: [0, 180, 360],
-          }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  y: [0, -bean.bobY, 0, bean.bobY, 0],
+                  x: [0, bean.driftX, 0, -bean.driftX, 0],
+                  rotate: [0, 180, 360],
+                }
+          }
           transition={{
             duration: bean.duration,
             delay: bean.delay,

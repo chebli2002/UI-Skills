@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Steam } from "@/components/Steam";
 
 type HeroCupProps = {
@@ -16,6 +16,8 @@ type HeroCupProps = {
  * AnimatedLogo mark in the hero so the page opens with continuous motion.
  */
 export function HeroCup({ className = "", strokeWidth = 2.5, showPour = false }: HeroCupProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className={`relative ${className}`}>
       <div className="absolute -top-9 left-1/2 -translate-x-1/2">
@@ -24,7 +26,7 @@ export function HeroCup({ className = "", strokeWidth = 2.5, showPour = false }:
 
       <svg viewBox="0 0 200 170" className="h-full w-full overflow-visible" fill="none">
         <motion.g
-          animate={{ y: [0, -6, 0], rotate: [0, 1.5, 0, -1.5, 0] }}
+          animate={shouldReduceMotion ? undefined : { y: [0, -6, 0], rotate: [0, 1.5, 0, -1.5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "100px 150px" }}
         >
@@ -61,11 +63,13 @@ export function HeroCup({ className = "", strokeWidth = 2.5, showPour = false }:
           {/* rim */}
           <ellipse cx="100" cy="68" rx="42" ry="8" stroke="currentColor" strokeWidth={strokeWidth} opacity={0.9} />
 
-          {/* liquid surface shimmer */}
+          {/* liquid surface shimmer — static rest position when reduced motion is on */}
           <motion.ellipse
             cx="100"
             cy="68"
-            animate={{ rx: [34, 35.5, 33.5, 34], ry: [6, 5.4, 6.4, 6] }}
+            rx={34}
+            ry={6}
+            animate={shouldReduceMotion ? undefined : { rx: [34, 35.5, 33.5, 34], ry: [6, 5.4, 6.4, 6] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             fill="currentColor"
             opacity={0.85}
