@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Button } from "@/components/Button";
 
 type MenuItem = { name: string; note: string; price: string };
 
@@ -41,23 +42,27 @@ export function Menu() {
   const [active, setActive] = useState(CATEGORIES[0]);
 
   return (
-    <section id="menu" className="relative py-32 px-6 md:px-16 bg-cream">
-      <div className="max-w-3xl mx-auto">
+    <section id="menu" className="relative py-24 md:py-32 px-6 md:px-16 bg-cream">
+      <div
+        aria-hidden
+        className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-charcoal-deep/30 to-transparent pointer-events-none"
+      />
+      <div className="max-w-[40rem] mx-auto">
         <div className="text-center mb-14">
-          <span className="text-burnt-orange uppercase tracking-[0.3em] text-xs">
+          <span className="text-burnt-orange-deep uppercase tracking-[0.3em] text-xs">
             The Menu
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-charcoal mt-4">
+          <h2 className="font-display text-3xl md:text-4xl text-charcoal mt-4">
             What we pour
           </h2>
         </div>
 
-        <div className="flex justify-center gap-2 mb-12">
+        <div className="flex gap-2 overflow-x-auto justify-start md:justify-center [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mb-12">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`relative px-6 py-2 text-sm uppercase tracking-widest transition-colors duration-300 ${
+              className={`relative whitespace-nowrap shrink-0 px-6 py-2 text-sm uppercase tracking-widest transition-colors duration-300 ${
                 active === cat ? "text-charcoal" : "text-charcoal-dim hover:text-charcoal"
               }`}
             >
@@ -92,13 +97,19 @@ export function Menu() {
                   <p className="font-display text-xl text-charcoal">{item.name}</p>
                   <p className="text-charcoal-dim text-sm mt-1">{item.note}</p>
                 </div>
-                <span className="text-burnt-orange font-display text-lg whitespace-nowrap">
+                <span className="text-burnt-orange-deep font-display text-xl tabular-nums whitespace-nowrap">
                   {item.price}
                 </span>
               </motion.li>
             ))}
           </motion.ul>
         </AnimatePresence>
+
+        <div className="flex justify-center mt-10">
+          <Button href="#visit" variant="primary" tone="light">
+            {active === "Beans" ? "Buy beans" : "Order ahead"}
+          </Button>
+        </div>
       </div>
     </section>
   );
