@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CinematicImage } from "@/components/CinematicImage";
 import { HeroCup } from "@/components/HeroCup";
+import { FloatingBeans } from "@/components/FloatingBeans";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -23,6 +24,8 @@ export function Hero() {
         overlay="hero"
         priority
       />
+
+      <FloatingBeans className="z-[5]" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
         <HeroCup className="h-28 md:h-36 w-auto text-burnt-orange mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]" />
