@@ -2,8 +2,8 @@ import { Logo } from "@/components/Logo";
 
 const links = [
   { label: "Menu", href: "#menu" },
-  { label: "Origin", href: "#" },
-  { label: "Visit", href: "#" },
+  { label: "Origin", href: "#origin" },
+  { label: "Visit", href: "#visit" },
 ];
 
 const social = ["Instagram", "X"];
@@ -45,13 +45,12 @@ export function Footer() {
             Follow
           </span>
           {social.map((s) => (
-            <a
+            <span
               key={s}
-              href="#"
-              className="text-charcoal-dim hover:text-burnt-orange transition-colors duration-300 w-fit"
+              className="text-charcoal-dim opacity-60 w-fit"
             >
               {s}
-            </a>
+            </span>
           ))}
         </div>
       </div>

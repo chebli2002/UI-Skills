@@ -3,6 +3,7 @@ import { Pour } from "@/components/sections/Pour";
 import { Origin } from "@/components/sections/Origin";
 import { Menu } from "@/components/sections/Menu";
 import { Gallery } from "@/components/sections/Gallery";
+import { Visit } from "@/components/sections/Visit";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Origin />
       <Menu />
       <Gallery />
+      <Visit />
       <Footer />
     </main>
   );
