@@ -15,8 +15,8 @@ type CinematicImageProps = {
 };
 
 const overlayClass: Record<NonNullable<CinematicImageProps["overlay"]>, string> = {
-  hero: "bg-gradient-to-t from-charcoal via-charcoal/40 to-charcoal/70",
-  panel: "bg-gradient-to-b from-charcoal/10 via-transparent to-charcoal/90",
+  hero: "bg-gradient-to-t from-charcoal-deep/75 via-charcoal/15 to-charcoal/35",
+  panel: "bg-gradient-to-b from-charcoal/15 via-transparent to-charcoal/40",
   none: "",
 };
 
@@ -38,7 +38,7 @@ export function CinematicImage({
   const [errored, setErrored] = useState(false);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`overflow-hidden ${className.includes("absolute") ? "" : "relative"} ${className}`}>
       {!errored ? (
         <Image
           src={`/images/${src}`}

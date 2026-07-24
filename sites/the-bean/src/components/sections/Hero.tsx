@@ -29,8 +29,8 @@ export function Hero() {
         <Steam strands={2} className="justify-center" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
-        <AnimatedLogo className="h-24 w-auto text-burnt-orange mb-6" />
+      <div className="relative z-10 flex flex-col items-center text-center px-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
+        <AnimatedLogo className="h-24 w-auto text-burnt-orange mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]" />
 
         <motion.h1
           className="font-display text-5xl md:text-7xl tracking-tight text-cream"

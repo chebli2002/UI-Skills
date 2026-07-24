@@ -37,7 +37,11 @@ export function Origin() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
         >
-          <RotatingBean className="h-48 w-48 md:h-72 md:w-72" />
+          <div
+            aria-hidden
+            className="absolute h-56 w-56 md:h-80 md:w-80 rounded-full bg-charcoal-deep/70 blur-2xl"
+          />
+          <RotatingBean className="relative h-48 w-48 md:h-72 md:w-72 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]" />
         </motion.div>
 
         <div>
