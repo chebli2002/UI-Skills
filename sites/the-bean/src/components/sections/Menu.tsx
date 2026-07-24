@@ -41,13 +41,13 @@ export function Menu() {
   const [active, setActive] = useState(CATEGORIES[0]);
 
   return (
-    <section id="menu" className="relative py-32 px-6 md:px-16 bg-charcoal-light">
+    <section id="menu" className="relative py-32 px-6 md:px-16 bg-cream">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-burnt-orange-light uppercase tracking-[0.3em] text-xs">
+          <span className="text-burnt-orange uppercase tracking-[0.3em] text-xs">
             The Menu
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-cream mt-4">
+          <h2 className="font-display text-4xl md:text-5xl text-charcoal mt-4">
             What we pour
           </h2>
         </div>
@@ -58,7 +58,7 @@ export function Menu() {
               key={cat}
               onClick={() => setActive(cat)}
               className={`relative px-6 py-2 text-sm uppercase tracking-widest transition-colors duration-300 ${
-                active === cat ? "text-charcoal" : "text-cream-dim hover:text-cream"
+                active === cat ? "text-charcoal" : "text-charcoal-dim hover:text-charcoal"
               }`}
             >
               {active === cat && (
@@ -80,7 +80,7 @@ export function Menu() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="divide-y divide-cream-dim/15"
+            className="divide-y divide-charcoal-dim/15"
           >
             {MENU[active].map((item) => (
               <motion.li
@@ -89,10 +89,10 @@ export function Menu() {
                 className="flex items-baseline justify-between gap-6 py-5"
               >
                 <div>
-                  <p className="font-display text-xl text-cream">{item.name}</p>
-                  <p className="text-cream-dim text-sm mt-1">{item.note}</p>
+                  <p className="font-display text-xl text-charcoal">{item.name}</p>
+                  <p className="text-charcoal-dim text-sm mt-1">{item.note}</p>
                 </div>
-                <span className="text-burnt-orange-light font-display text-lg whitespace-nowrap">
+                <span className="text-burnt-orange font-display text-lg whitespace-nowrap">
                   {item.price}
                 </span>
               </motion.li>

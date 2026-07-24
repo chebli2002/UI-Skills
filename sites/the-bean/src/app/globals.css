@@ -8,6 +8,7 @@
   --cream-dim: #c9bda9;
   --burnt-orange: #c1622f;
   --burnt-orange-light: #e2925a;
+  --charcoal-dim: #6b5f52;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
   --color-charcoal-deep: var(--charcoal-deep);
   --color-cream: var(--cream);
   --color-cream-dim: var(--cream-dim);
+  --color-charcoal-dim: var(--charcoal-dim);
   --color-burnt-orange: var(--burnt-orange);
   --color-burnt-orange-light: var(--burnt-orange-light);
   --font-display: var(--font-display);
