@@ -21,21 +21,27 @@ const item = {
 
 export function Gallery() {
   return (
-    <section className="py-32 px-6 md:px-16">
+    <section className="relative py-20 md:py-28 px-4 md:px-16">
+      <div
+        aria-hidden="true"
+        className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-cream/10 to-transparent pointer-events-none"
+      />
       <div className="text-center mb-14">
         <span className="text-burnt-orange-light uppercase tracking-[0.3em] text-xs">
           Inside The Bean
         </span>
-        <h2 className="font-display text-4xl md:text-5xl text-cream mt-4">
+        <h2 className="font-display text-3xl md:text-4xl text-cream mt-4">
           A room built for slowing down
         </h2>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4">
         {shots.map((shot, i) => (
           <motion.div
             key={shot.src}
-            className="group relative aspect-[3/4] overflow-hidden"
+            className={`group relative overflow-hidden aspect-[3/4] ${
+              i === 0 ? "md:col-span-2 md:row-span-2 md:aspect-auto md:h-full" : ""
+            }`}
             variants={item}
             custom={i * 0.1}
             initial="hidden"
